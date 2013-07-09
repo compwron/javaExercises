@@ -2,17 +2,19 @@ package src;
 
 import java.util.ArrayList;
 
-public class OddIntegerFinder {
+public class IntegerFinder {
     private final ArrayList<Integer> integers;
+    private final IntegerType integerType;
 
-    public OddIntegerFinder(ArrayList<Integer> integers) {
+    public IntegerFinder(ArrayList<Integer> integers, IntegerType integerType) {
         this.integers = integers;
+        this.integerType = integerType;
     }
 
-    public ArrayList<Integer> odds() {
+    public ArrayList<Integer> results() {
         ArrayList<Integer> odds = new ArrayList<Integer>();
         for (Integer integer : integers){
-            if (integer % 2 == 1){
+            if (integer % 2 == integerType.divisor){
                 odds.add(integer);
             }
         }

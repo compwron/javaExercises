@@ -1,4 +1,5 @@
-import org.junit.Test;import src.IntegerProduct;
+import org.junit.Test;
+import src.IntegerProduct;
 
 import static org.hamcrest.core.Is.is;import static org.junit.Assert.assertThat;
 

@@ -1,9 +1,11 @@
 package src;
 
-public class IntegerProduct {
-    private final Integer[] numbers;
+import java.util.ArrayList;
 
-    public IntegerProduct(Integer... numbers) {
+public class IntegerProduct {
+    private final ArrayList<Integer> numbers;
+
+    public IntegerProduct(ArrayList<Integer> numbers) {
         this.numbers = numbers;
     }
 

@@ -17,6 +17,13 @@ public class ExercisesMain {
         integers.add(1);
         integers.add(3);
         integers.add(22);
-        System.out.println("Odd integers in [1, 3, 22] is: " + new OddIntegerFinder(integers).odds());
+        System.out.println("Odd integers in [1, 3, 22] is: " + new IntegerFinder(integers, IntegerType.ODD).results());
+
+
+        integers.add(2);
+        integers.add(5);
+        System.out.println("List of integers:" + integers);
+        System.out.println("Sum of odd integers in list: " + new Sum(new IntegerFinder(integers, IntegerType.ODD).results()));
+        System.out.println("Product of even integers in list: " + new IntegerProduct(new IntegerFinder(integers, IntegerType.EVEN).results()));
     }
 }
