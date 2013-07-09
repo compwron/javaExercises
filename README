@@ -1,0 +1,23 @@
+Do all of the problems in Java and push your results into GitHub. Test Drive you solution to the best of your ability and write the most readable code you can.
+
+When you finish the exercises let me know which one you found the most challenging and how you would rate it on a scale from 1(Trivial) to 5 (Super Tough).
+
+If you get stuck, ask for help from someone else who is doing this homework, your teammates, or email me.
+
+Here are the problems:
+
+Given a number n, print a centered diamond. It should look something like this:
+  *
+ ***
+*****
+ ***
+  *
+
+Given a number n, print the sum of all of the numbers from 1 to n.
+
+Given a number n, print the average of all of the numbers from 1 to n.
+
+Compute an approximation of pi using this formula: (see ExerciseBasics_ComputePI.png)
+
+Given an array of Integers, print out all of the odd ones.
+Given an array of Integers, print the sum of the odd ones and the product of the even ones.
