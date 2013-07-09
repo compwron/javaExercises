@@ -1,9 +1,9 @@
 package src;
 
-public class FactorialSum {
+public class SumOf1ToN {
     private Integer number;
 
-    public FactorialSum(Integer number) {
+    public SumOf1ToN(Integer number) {
         this.number = number;
     }
 
