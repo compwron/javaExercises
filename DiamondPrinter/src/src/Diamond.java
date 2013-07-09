@@ -1,6 +1,7 @@
 package src;
 
 public class Diamond {
+    public static final int increment = 2;
     private final Integer centerDiameter;
 
     public Diamond(int centerDiameter) {
@@ -9,22 +10,29 @@ public class Diamond {
 
     public String print() {
         String diamond = "";
-        Integer currentStars = 1;
-        while (currentStars <= centerDiameter){
-            diamond += padToDiameter(currentStars) + "\n";
-            currentStars += 2;
+        Integer starCount = 1;
+        while (starCount <= centerDiameter){
+            diamond += padToDiameter(starCount) + "\n";
+            starCount += increment;
+        }
+
+        starCount -= increment;
+
+        while (starCount > 1){
+            starCount -= increment;
+            diamond += padToDiameter(starCount) + "\n";
         }
         return diamond;
     }
 
-    private String padToDiameter(Integer currentStars) {
-        Integer padding = centerDiameter - currentStars / 2;
+    private String padToDiameter(Integer starCount) {
+        Integer padding = (centerDiameter - starCount) / increment;
 
         String paddedStars = "";
         while(paddedStars.length() < padding){
             paddedStars += " ";
         }
-        paddedStars += stars(currentStars);
+        paddedStars += stars(starCount);
         while(paddedStars.length() < (padding + centerDiameter)){
             paddedStars += " ";
         }

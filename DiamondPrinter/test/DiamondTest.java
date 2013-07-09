@@ -8,12 +8,7 @@ public class DiamondTest {
 
     @Test
     public void shouldMakeDiamondStringWithCenterCountOfOne(){
-        assertThat(new Diamond(1).print(), is("*"));
-    }
-
-    @Test
-    public void shouldMakeDiamondStringWithCenterCountOfTwo(){
-        assertThat(new Diamond(2).print(), is("**"));
+        assertThat(new Diamond(1).print(), is("*\n"));
     }
 
     @Test
