@@ -1,15 +1,15 @@
 package src;
 
 public class SumOf1ToN {
-    private Integer number;
+    private Double number;
 
-    public SumOf1ToN(Integer number) {
+    public SumOf1ToN(Double number) {
         this.number = number;
     }
 
-    public Integer sum() {
-        Integer currentSum = 0;
-        Integer numbersRemaining = number;
+    public Double sum() {
+        Double currentSum = 0.0;
+        Double numbersRemaining = number;
         while(numbersRemaining > 0){
             currentSum += numbersRemaining;
             numbersRemaining -= 1;

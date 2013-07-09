@@ -8,13 +8,6 @@ public class AverageOf1ToN {
     }
 
     public Double average() {
-        Integer current = 1;
-        Integer sum = 0;
-        while(current <= number){
-            sum += current;
-            current += 1;
-        }
-
-        return sum / number;
+        return new SumOf1ToN(number).sum() / number;
     }
 }

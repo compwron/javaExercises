@@ -7,11 +7,11 @@ public class SumOf1ToNTest {
 
     @Test
     public void sumOfOneIsOne(){
-        assertThat(new SumOf1ToN(1).sum(), is(1));
+        assertThat(new SumOf1ToN(1.0).sum(), is(1.0));
     }
 
     @Test
     public void sumOfFiveIsFifteen(){
-        assertThat(new SumOf1ToN(5).sum(), is(15));
+        assertThat(new SumOf1ToN(5.0).sum(), is(15.0));
     }
 }

@@ -13,7 +13,7 @@ public class DiamondTest {
 
     @Test
     public void shouldMakeDiamondStringWithCenterCountOfThree(){
-        assertThat(new Diamond(2).print(), is(" *\n***\n *"));
+        assertThat(new Diamond(3).print(), is(" *  \\n***\\n *  \\n"));
     }
 
 }
