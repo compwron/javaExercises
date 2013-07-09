@@ -1,5 +1,7 @@
 package src;
 
+import java.util.ArrayList;
+
 public class ExercisesMain {
 
     public static void main(String... args){
@@ -10,5 +12,11 @@ public class ExercisesMain {
         System.out.println("Average of sum of all numbers from 1 to 10 is: " + new AverageOf1ToN(10).average());
 
         System.out.println("Approximation of pi using 100 fractions is: " + new ApproximatePi().accuracy(100));
+
+        ArrayList<Integer> integers = new ArrayList<Integer>();
+        integers.add(1);
+        integers.add(3);
+        integers.add(22);
+        System.out.println("Odd integers in [1, 3, 22] is: " + new OddIntegerFinder(integers).odds());
     }
 }
