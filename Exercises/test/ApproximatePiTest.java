@@ -12,6 +12,6 @@ public class ApproximatePiTest {
 
     @Test
     public void shouldApproximatePiWithLargeAlgorithmAccuracy(){
-        assertThat(new ApproximatePi().accuracy(100), is(3.141419));
+        assertThat(new ApproximatePi().accuracy(100), is(3.1514934010709905));
     }
 }

@@ -1,26 +1,29 @@
 package src;
 
 public class ApproximatePi {
+    private  Integer counterGoal = 1;
+
     public Double accuracy(int fractionAccuracy) {
+        counterGoal = fractionAccuracy;
         Integer currentFractionDenominator = -3; // algorithm dictates that first denominator is 3
-        return 4 * (1 + fractionsUpToLimit(currentFractionDenominator, fractionAccuracy, 0.0)); // starts with fraction sum of 0
+        return 4 * (1 + fractions(0.0, currentFractionDenominator, 0)); // starts with fraction sum of 0
     }
 
-    private Double fractionsUpToLimit(Integer currentFractionDenominator, int fractionAccuracy, Double currentFractionSum) {
-        currentFractionSum += 1.0 /currentFractionDenominator; // increment sum by the next fraction
-        System.out.println("Added 1/" + currentFractionDenominator);
-        boolean startedNegative = currentFractionDenominator < 0;
+    private Double fractions(Double currentFractionSum, Integer currentFractionDenominator, Integer counter){
+        currentFractionSum += (1.0 / currentFractionDenominator);
+        boolean wasPositive = currentFractionDenominator > 0;
         currentFractionDenominator = Math.abs(currentFractionDenominator);
-        currentFractionDenominator += 2; // increment and reverse denominator
-
-        if (!startedNegative){
-            currentFractionDenominator *= -1;
+        currentFractionDenominator += 2;
+        if (wasPositive){
+            currentFractionDenominator = currentFractionDenominator * -1;
         }
+        counter += 1;
 
-        if (Math.abs(currentFractionDenominator) < fractionAccuracy){
-            fractionsUpToLimit(currentFractionDenominator, fractionAccuracy, currentFractionSum);
+        if(counter == counterGoal){
+            return currentFractionSum;
+        } else {
+            return fractions(currentFractionSum, currentFractionDenominator, counter);
         }
-        return currentFractionSum;  //To change body of created methods use File | Settings | File Templates.
     }
 
 
