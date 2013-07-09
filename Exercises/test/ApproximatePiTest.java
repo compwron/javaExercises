@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 public class ApproximatePiTest {
     @Test
     public void shouldApproximatePiWithMinimumAlgorithmAccuracy(){
-        assertThat(new ApproximatePi().accuracy(1), is(3.14));
+        assertThat(new ApproximatePi().accuracy(1), is(2.666666666666667));
     }
 
     @Test
