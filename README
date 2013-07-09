@@ -24,6 +24,9 @@ Given a number n, print the average of all of the numbers from 1 to n.
 (Rating: 1)
 
 Compute an approximation of pi using this formula: (see ExerciseBasics_ComputePI.png)
+(Rating: 2)
 
 Given an array of Integers, print out all of the odd ones.
+(Rating: 1)
+
 Given an array of Integers, print the sum of the odd ones and the product of the even ones.
