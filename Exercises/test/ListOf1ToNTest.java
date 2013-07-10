@@ -4,7 +4,7 @@ import src.ListOf1ToN;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class SumOf1ToNTest {
+public class ListOf1ToNTest {
 
     @Test
     public void sumOfOneIsOne(){
