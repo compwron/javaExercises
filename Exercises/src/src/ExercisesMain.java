@@ -23,7 +23,7 @@ public class ExercisesMain {
         integers.add(2);
         integers.add(5);
         System.out.println("List of integers:" + integers);
-        System.out.println("Sum of odd integers in list: " + new Sum(new IntegerFinder(integers, IntegerType.ODD).results()));
-        System.out.println("Product of even integers in list: " + new IntegerProduct(new IntegerFinder(integers, IntegerType.EVEN).results()));
+        System.out.println("Sum of odd integers in list: " + new Sum(new IntegerFinder(integers, IntegerType.ODD).results()).sum());
+        System.out.println("Product of even integers in list: " + new IntegerProduct(new IntegerFinder(integers, IntegerType.EVEN).results()).product());
     }
 }
