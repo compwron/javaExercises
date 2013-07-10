@@ -30,3 +30,4 @@ Given an array of Integers, print out all of the odd ones.
 (Rating: 1)
 
 Given an array of Integers, print the sum of the odd ones and the product of the even ones.
+(Rating: 2 - the extra point is for the difficulty of sensible reuse)
