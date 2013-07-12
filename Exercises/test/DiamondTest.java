@@ -19,6 +19,7 @@ public class DiamondTest {
 
     @Test
     public void shouldMakeDiamondStringWithMultipleNonCenterIncrements(){
-        assertEquals(new Diamond(5).print(), "   *   \n *** \n*****\n *** \n   *   \n");
+        System.out.println(new Diamond(5).print());
+        assertThat(new Diamond(5).print(), is("   *   \n *** \n*****\n *** \n   *   \n"));
     }
 }

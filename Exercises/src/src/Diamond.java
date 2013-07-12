@@ -31,8 +31,8 @@ public class Diamond {
     }
 
     private String padStarLine(String starLine) {
-        Integer padSize = centerDiameter - starLine.length() / 2;
-        for(Integer i : new ListOf1ToN(padSize - increment).list()){
+        int spacesOnEachSide = (centerDiameter - starLine.length()) / 2;
+        for (int i : new ListOf1ToN(spacesOnEachSide).list()){
             starLine = " " + starLine + " ";
         }
         return starLine;
