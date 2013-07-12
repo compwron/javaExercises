@@ -31,3 +31,10 @@ Given an array of Integers, print out all of the odd ones.
 
 Given an array of Integers, print the sum of the odd ones and the product of the even ones.
 (Rating: 2 - the extra point is for the difficulty of sensible reuse)
+
+
+This is taken from Programming Pearls (don't look it up yet because it talks about solutions).
+Write a program that uses text content from a file to build an Order 1 Word Markov Chain and then generate a block of text with as many words as the source text contains. Generalize this code for Order 2 Chains.
+Markov Chain Text Generation
+How can you generate random text? A classic approach is to let loose that poor monkey on his aging typewriter. If the beast is equally likely to hit any lower case letter or the space bar, the output might look like this:
+(excerpt of problem goes here)

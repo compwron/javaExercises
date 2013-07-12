@@ -1,6 +1,7 @@
 import org.junit.Test;
 import src.Diamond;
 
+import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -13,7 +14,6 @@ public class DiamondTest {
 
     @Test
     public void shouldMakeDiamondStringWithCenterCountOfThree(){
-        assertThat(new Diamond(3).print(), is(" *  \\n***\\n *  \\n"));
+        assertEquals(new Diamond(3).print(), " * \n***\n * \n");
     }
-
 }
