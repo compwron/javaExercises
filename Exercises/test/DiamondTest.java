@@ -16,4 +16,9 @@ public class DiamondTest {
     public void shouldMakeDiamondStringWithCenterCountOfThree(){
         assertEquals(new Diamond(3).print(), " * \n***\n * \n");
     }
+
+    @Test
+    public void shouldMakeDiamondStringWithMultipleNonCenterIncrements(){
+        assertEquals(new Diamond(5).print(), "   *   \n *** \n*****\n *** \n   *   \n");
+    }
 }

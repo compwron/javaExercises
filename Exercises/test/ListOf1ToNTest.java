@@ -13,6 +13,6 @@ public class ListOf1ToNTest {
 
     @Test
     public void sumOfFiveIsFifteen(){
-        assertThat(new ListOf1ToN(5).list(), is(TestHelper.arrayContaining(5, 4, 3, 2, 1)));
+        assertThat(new ListOf1ToN(5).list(), is(TestHelper.arrayContaining(1, 2, 3, 4, 5)));
     }
 }

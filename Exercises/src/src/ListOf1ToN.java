@@ -11,10 +11,10 @@ public class ListOf1ToN {
 
     public ArrayList<Integer> list() {
         ArrayList<Integer> numbers = new ArrayList<Integer>();
-        Integer numbersRemaining = number;
-        while(numbersRemaining > 0){
+        Integer numbersRemaining = 1;
+        while(numbersRemaining <= number){
             numbers.add(numbersRemaining);
-            numbersRemaining -= 1;
+            numbersRemaining += 1;
         }
         return numbers;
     }
