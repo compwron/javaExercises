@@ -53,55 +53,6 @@ public class Diamond {
         return stars;
     }
 
-//    public ArrayList<String> starLines(){
-//        ArrayList<String> stars = new ArrayList<String>();
-//        Integer starCount = 1;
-//        while(starCount <= centerDiameter){
-//            stars.add(stars(starCount));
-//            starCount += increment;
-//        }
-//
-//        starCount -= increment;
-//
-//        while(starCount >= centerDiameter){
-//            starCount -= increment;
-//            stars.add(stars(starCount));
-//        }
-//        return stars;
-//    }
-//
-//
-//    public String print() {
-//        String diamond = "";
-//        Integer starCount = 1;
-//        while (starCount <= centerDiameter){
-//            diamond += padToDiameter(starCount) + "\n";
-//            starCount += increment;
-//        }
-//
-//        starCount -= increment;
-//
-//        while (starCount > 1){
-//            starCount -= increment;
-//            diamond += padToDiameter(starCount) + "\n";
-//        }
-//        return diamond;
-//    }
-//
-//    private String padToDiameter(Integer starCount) {
-//        Integer padding = (centerDiameter - starCount) / increment;
-//
-//        String paddedStars = "";
-//        while(paddedStars.length() < padding){
-//            paddedStars += " ";
-//        }
-//        paddedStars += stars(starCount);
-//        while(paddedStars.length() < (padding + centerDiameter)){
-//            paddedStars += " ";
-//        }
-//        return paddedStars;
-//    }
-
     private String stars(Integer currentStars) {
         String stars = "";
         while(stars.length() < currentStars){
