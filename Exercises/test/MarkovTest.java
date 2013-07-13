@@ -46,4 +46,11 @@ public class MarkovTest {
         MarkovGenerator chain = new MarkovGenerator(text);
         assertThat(chain.mostCommonlyFollowedOf("a").character(), is('d'));
     }
+
+    @Test
+    public void shouldGenerateShortText(){
+        String text = "ac ac ";
+        MarkovGenerator generator = new MarkovGenerator(text);
+        assertThat(generator.generate(5), is("ac ab"));
+    }
 }

@@ -49,11 +49,11 @@ public class MarkovCollection {
         return symbols;
     }
 
-    public MarkovSymbol getSymbol(String letter) {
-        MarkovSymbol symbol = symbols.get(letter.charAt(0));
+    public MarkovSymbol getSymbol(Character letter) {
+        MarkovSymbol symbol = symbols.get(letter);
         if(symbol != null){
-            return symbols.get(letter.charAt(0));
+            return symbols.get(letter);
         }
-        return new MarkovSymbol(letter.charAt(0));
+        return new MarkovSymbol(letter);
     }
 }
