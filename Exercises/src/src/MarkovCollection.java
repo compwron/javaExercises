@@ -14,8 +14,8 @@ public class MarkovCollection {
 
     private HashMap<Character, MarkovSymbol> populateUsageCounts(HashMap<Character, MarkovSymbol> characterMarkovSymbolHashMap, ArrayList<Character> characters) {
         for(int i = 0; i < characters.size(); i++ ){
-            if(i <= characters.size() -1){
-                characterMarkovSymbolHashMap.get(characters.get(i)).addUsage(characters.get(i+1));
+            if(i < characters.size() -1){
+                characterMarkovSymbolHashMap.get(characters.get(i)).addUsageFollowedBy(characters.get(i + 1));
             } else {
                 characterMarkovSymbolHashMap.get(characters.get(i)).addUsageWithoutFollowedBy();
             }

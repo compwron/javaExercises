@@ -21,14 +21,19 @@ public class MarkovSymbol {
         return null;
     }
 
-    public MarkovSymbol addUsage(Character character) {
+    public MarkovSymbol addUsageFollowedBy(Character character) {
         usageCount++;
         MarkovSymbol foundFollowed = followedBy.get(character);
         if (foundFollowed != null){
-            foundFollowed.addUsage(character);
+            foundFollowed.addUsageFollowedBy(character);
         } else {
-            followedBy.put(character, new MarkovSymbol(character).addUsage(character));
+            followedBy.put(character, new MarkovSymbol(character).addUsage());
         }
+        return this;
+    }
+
+    public MarkovSymbol addUsage(){
+        usageCount++;
         return this;
     }
 
