@@ -13,8 +13,12 @@ public class MarkovCollection {
     }
 
     private HashMap<Character, MarkovSymbol> populateUsageCounts(HashMap<Character, MarkovSymbol> characterMarkovSymbolHashMap, ArrayList<Character> characters) {
-      for (Character fullTextCharacter : characters){
-          characterMarkovSymbolHashMap.get(fullTextCharacter).addUsage();
+        for(int i = 0; i < characters.size(); i++ ){
+            if(i <= characters.size() -1){
+                characterMarkovSymbolHashMap.get(characters.get(i)).addUsage(characters.get(i+1));
+            } else {
+                characterMarkovSymbolHashMap.get(characters.get(i)).addUsageWithoutFollowedBy();
+            }
       }
         return characterMarkovSymbolHashMap;
     }
@@ -43,10 +47,6 @@ public class MarkovCollection {
                 symbols.put(character, new MarkovSymbol(character));
             }
         return symbols;
-    }
-
-    public void addInstance(Character character){
-        symbols.get(character).addUsage();
     }
 
     public MarkovSymbol getSymbol(String letter) {

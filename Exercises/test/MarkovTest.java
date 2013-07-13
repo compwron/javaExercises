@@ -27,7 +27,6 @@ public class MarkovTest {
         assertThat(chain.frequencyOf("a"), is(4));
     }
 
-    @Ignore("not implemented")
     @Test
     public void shouldReadCommonlyFollowedByFromText(){
         String text = "ab";
