@@ -1,4 +1,3 @@
-import org.junit.Ignore;
 import org.junit.Test;
 import src.MarkovGenerator;
 
@@ -31,22 +30,20 @@ public class MarkovTest {
     public void shouldReadCommonlyFollowedByFromText(){
         String text = "ab";
         MarkovGenerator chain = new MarkovGenerator(text);
-        assertThat(chain.mostCommonlyFollowedOf("a"), is("b"));
+        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
     }
 
-    @Ignore("not implemented")
     @Test
     public void shouldReadCommonlyFollowedByFromTextAsNullWhenNone(){
         String text = "ab";
         MarkovGenerator chain = new MarkovGenerator(text);
-        assertThat(chain.mostCommonlyFollowedOf("a"), is("b"));
+        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
     }
 
-    @Ignore("not implemented")
     @Test
-    public void shouldReadCommonlyFollowedByFromTextAsFirstWhenTied(){
+    public void shouldReadCommonlyFollowedByFromTextAsLastWhenTied(){
         String text = "acad";
         MarkovGenerator chain = new MarkovGenerator(text);
-        assertThat(chain.mostCommonlyFollowedOf("a"), is("c"));
+        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('d'));
     }
 }

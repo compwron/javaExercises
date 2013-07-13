@@ -11,7 +11,7 @@ public class MarkovGenerator {
         return frequencies.getSymbol(letter).usageCount();
     }
 
-    public String mostCommonlyFollowedOf(String letter) {
+    public MarkovSymbol mostCommonlyFollowedOf(String letter) {
         return frequencies.getSymbol(letter).mostCommonlyFollowedBy();
     }
 }

@@ -17,8 +17,14 @@ public class MarkovSymbol {
         return usageCount;
     }
 
-    public String mostCommonlyFollowedBy() {
-        return null;
+    public MarkovSymbol mostCommonlyFollowedBy() {
+        MarkovSymbol largestFollowedBy = new MarkovSymbol(null);
+        for(Character followedByCharacter : followedBy.keySet()){
+            if (followedBy.get(followedByCharacter).usageCount > largestFollowedBy.usageCount()){
+                largestFollowedBy = followedBy.get(followedByCharacter);
+            }
+        }
+        return largestFollowedBy;
     }
 
     public MarkovSymbol addUsageFollowedBy(Character character) {
@@ -39,5 +45,9 @@ public class MarkovSymbol {
 
     public void addUsageWithoutFollowedBy() {
         usageCount++;
+    }
+
+    public Character character() {
+        return letter;
     }
 }
