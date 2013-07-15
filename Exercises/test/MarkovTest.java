@@ -1,4 +1,5 @@
 import org.junit.Test;
+import src.GenerateLevel;
 import src.MarkovGenerator;
 
 import static org.hamcrest.core.Is.is;
@@ -9,49 +10,49 @@ public class MarkovTest {
     @Test
     public void shouldReadEmptyFrequencyFromEmptyText(){
         String text = "";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.frequencyOf("a"), is(0));
     }
 
     @Test
     public void shouldReadFrequenciesFromText(){
         String text = "ab";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.frequencyOf("a"), is(1));
     }
 
     @Test
     public void shouldReadMultipleFrequenciesFromText(){
         String text = "aaaa";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.frequencyOf("a"), is(4));
     }
 
     @Test
     public void shouldReadCommonlyFollowedByFromText(){
         String text = "ab";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
     }
 
     @Test
     public void shouldReadCommonlyFollowedByFromTextAsNullWhenNone(){
         String text = "ab";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
     }
 
     @Test
     public void shouldReadCommonlyFollowedByFromTextAsLastWhenTied(){
         String text = "acad";
-        MarkovGenerator chain = new MarkovGenerator(text);
+        MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(chain.mostCommonlyFollowedOf("a").character(), is('d'));
     }
 
     @Test
     public void shouldGenerateShortText(){
         String text = "ac ac ";
-        MarkovGenerator generator = new MarkovGenerator(text);
+        MarkovGenerator generator = new MarkovGenerator(text, GenerateLevel.Letter);
         assertThat(generator.generate(5), is("ac ab"));
     }
 
@@ -61,7 +62,7 @@ public class MarkovTest {
                 "Readers with a mathematical background might recognize this process as a Markov chain. One state represents each k-gram, and the odds of going from one to another don't change, so this is a ``finite-state Markov chain with stationary transition probabilities''.\n" +
                 "\n" +
                 "We can also generate random text at the word level. The dumbest approach is to spew forth the words in a dictionary at random. A slightly better approach reads a document, counts each word, and then selects the next word to be printed with the appropriate probability. We can get more interesting text, though, by using Markov chains that take into account a few preceding words as they generate the next word. Here is some random text produced after reading a draft of the first 14 columns of this book:";
-        MarkovGenerator generator = new MarkovGenerator(text);
+        MarkovGenerator generator = new MarkovGenerator(text, GenerateLevel.Letter);
         assertTrue(generator.generate(500) != null);
     }
 }
