@@ -28,7 +28,7 @@ public class MarkovGenerator {
     }
 
     private String addSymbol(String textSoFar, MarkovSymbol currentSymbol, Integer count, Integer max){
-        if (count <= max) {
+        if (count < max) {
             textSoFar += currentSymbol.character() + generateLevel.splitSymbol;
             count++;
             Character mostFollowed = currentSymbol.nextFollowedBy().character();
