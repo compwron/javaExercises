@@ -7,6 +7,8 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class MarkovTest {
+    private final String longText = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
     @Test
     public void shouldReadEmptyFrequencyFromEmptyText(){
         String text = "";
@@ -58,11 +60,26 @@ public class MarkovTest {
 
     @Test
     public void shouldGenerateLongText(){
-        String text = "We can extend this idea to longer sequences of letters. The order-2 text was made by generating each letter as a function of the two letters preceding it (a letter pair is often called a digram). The digram TH, for instance, is often followed in English by the vowels A, E, I, O, U and Y, less frequently by R and W, and rarely by other letters. The order-3 text is built by choosing the next letter as a function of the three previous letters (a trigram). By the time we get to the order-4 text, most words are English, and you might not be surprised to learn that it was generated from a Sherlock Holmes story (``The Adventure of Abbey Grange''). A classically educated reader of a draft of this column commented that this sequence of fragments reminded him of the evolution from Old English to Victorian English.\n" +
-                "Readers with a mathematical background might recognize this process as a Markov chain. One state represents each k-gram, and the odds of going from one to another don't change, so this is a ``finite-state Markov chain with stationary transition probabilities''.\n" +
-                "\n" +
-                "We can also generate random text at the word level. The dumbest approach is to spew forth the words in a dictionary at random. A slightly better approach reads a document, counts each word, and then selects the next word to be printed with the appropriate probability. We can get more interesting text, though, by using Markov chains that take into account a few preceding words as they generate the next word. Here is some random text produced after reading a draft of the first 14 columns of this book:";
-        MarkovGenerator generator = new MarkovGenerator(text, GenerateLevel.Letter);
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Letter);
         assertTrue(generator.generate(500) != null);
     }
+
+    @Test
+    public void shouldByDefaultGenerateNumberOfCharactersAsInOriginalText(){
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Letter);
+        assertThat(generator.generate().length(), is(longText.length()));
+    }
+
+    @Test
+    public void shouldGenerateSpecifiedNumberOfCharacters(){
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Letter);
+        assertThat(generator.generate(50).length(), is(50));
+    }
+
+//    @Test
+//    public void shouldGenerateWordsWithSpacesWithoutSpacesEveryLetter(){
+//        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Letter);
+//        assertThat(generator.generate());
+//    }
+
 }
