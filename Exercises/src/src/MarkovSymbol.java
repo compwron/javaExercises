@@ -1,6 +1,7 @@
 package src;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class MarkovSymbol {
     private final Character letter;
@@ -49,5 +50,19 @@ public class MarkovSymbol {
 
     public Character character() {
         return letter;
+    }
+
+    public MarkovSymbol nextFollowedBy() {
+//        if this is not true random, does that make it possible to generate the original text from the generated text?
+        Random random = new Random();
+        int goalSymbol = random.nextInt(followedBy.size());
+        int currentSymbol = 0;
+        for (MarkovSymbol symbol : followedBy.values()){
+            if (currentSymbol >= goalSymbol){
+                return symbol;
+            }
+            currentSymbol++;
+        }
+        return null;
     }
 }

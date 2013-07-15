@@ -7,8 +7,8 @@ import java.util.HashSet;
 public class MarkovCollection {
     HashMap<Character, MarkovSymbol> symbols = new HashMap<Character, MarkovSymbol>();
 
-    public MarkovCollection(String text) {
-        ArrayList<Character> characters = removeEmpties(text.split(""));
+    public MarkovCollection(String text, String splitSymbol) {
+        ArrayList<Character> characters = removeEmpties(text.split(splitSymbol));
         symbols = populateUsageCounts(allSymbols(uniqueCharacters(characters)), characters);
     }
 
