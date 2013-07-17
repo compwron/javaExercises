@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class MarkovSymbol {
-    private final Character letter;
+    private final String unit;
     private Integer usageCount;
 
-    private HashMap<Character, MarkovSymbol> followedBy = new HashMap<Character, MarkovSymbol>();
+    private HashMap<String, MarkovSymbol> followedBy = new HashMap<String, MarkovSymbol>();
 
-    public MarkovSymbol(Character letter) {
-        this.letter = letter;
+    public MarkovSymbol(String unit) {
+        this.unit = unit;
         this.usageCount = 0;
     }
 
@@ -20,21 +20,21 @@ public class MarkovSymbol {
 
     public MarkovSymbol mostCommonlyFollowedBy() {
         MarkovSymbol largestFollowedBy = new MarkovSymbol(null);
-        for(Character followedByCharacter : followedBy.keySet()){
-            if (followedBy.get(followedByCharacter).usageCount > largestFollowedBy.usageCount()){
-                largestFollowedBy = followedBy.get(followedByCharacter);
+        for(String followedByUnit : followedBy.keySet()){
+            if (followedBy.get(followedByUnit).usageCount > largestFollowedBy.usageCount()){
+                largestFollowedBy = followedBy.get(followedByUnit);
             }
         }
         return largestFollowedBy;
     }
 
-    public MarkovSymbol addUsageFollowedBy(Character character) {
+    public MarkovSymbol addUsageFollowedBy(String unit) {
         usageCount++;
-        MarkovSymbol foundFollowed = followedBy.get(character);
+        MarkovSymbol foundFollowed = followedBy.get(unit);
         if (foundFollowed != null){
-            foundFollowed.addUsageFollowedBy(character);
+            foundFollowed.addUsageFollowedBy(unit);
         } else {
-            followedBy.put(character, new MarkovSymbol(character).addUsage());
+            followedBy.put(unit, new MarkovSymbol(unit).addUsage());
         }
         return this;
     }
@@ -48,8 +48,8 @@ public class MarkovSymbol {
         usageCount++;
     }
 
-    public Character character() {
-        return letter;
+    public String unit() {
+        return unit;
     }
 
     public MarkovSymbol nextFollowedBy() {

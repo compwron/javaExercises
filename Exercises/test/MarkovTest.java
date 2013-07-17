@@ -34,21 +34,21 @@ public class MarkovTest {
     public void shouldReadCommonlyFollowedByFromText(){
         String text = "ab";
         MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
-        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
+        assertThat(chain.mostCommonlyFollowedOf("a").unit(), is("b"));
     }
 
     @Test
     public void shouldReadCommonlyFollowedByFromTextAsNullWhenNone(){
         String text = "ab";
         MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
-        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('b'));
+        assertThat(chain.mostCommonlyFollowedOf("a").unit(), is("b"));
     }
 
     @Test
     public void shouldReadCommonlyFollowedByFromTextAsLastWhenTied(){
         String text = "acadad";
         MarkovGenerator chain = new MarkovGenerator(text, GenerateLevel.Letter);
-        assertThat(chain.mostCommonlyFollowedOf("a").character(), is('d'));
+        assertThat(chain.mostCommonlyFollowedOf("a").unit(), is("d"));
     }
 
     @Test

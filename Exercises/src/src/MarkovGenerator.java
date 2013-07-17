@@ -11,16 +11,25 @@ public class MarkovGenerator {
         this.frequencies = new MarkovCollection(text, generateLevel.splitSymbol);
     }
 
-    public Integer frequencyOf(String letter) {
-        return frequencies.getSymbol(letter.charAt(0)).usageCount();
+    public Integer frequencyOf(String unit) {
+        return frequencies.getSymbol(unit).usageCount();
     }
 
-    public MarkovSymbol mostCommonlyFollowedOf(String letter) {
-        return frequencies.getSymbol(letter.charAt(0)).mostCommonlyFollowedBy();
+    public MarkovSymbol mostCommonlyFollowedOf(String unit) {
+        return frequencies.getSymbol(unit).mostCommonlyFollowedBy();
     }
 
     public String generate(int symbolsToGenerate) {
-        return addSymbol("", frequencies.getSymbol(text.charAt(0)), 0, symbolsToGenerate);
+        return addSymbol("", frequencies.getSymbol(firstUnit(text)), 0, symbolsToGenerate);
+    }
+
+    private String firstUnit(String text) {
+        for(String unit : text.split(generateLevel.splitSymbol)){
+            if (!unit.equals("")){
+                return unit;
+            }
+        }
+        return null;
     }
 
     public String generate(){
@@ -29,9 +38,9 @@ public class MarkovGenerator {
 
     private String addSymbol(String textSoFar, MarkovSymbol currentSymbol, Integer count, Integer max){
         if (count < max) {
-            textSoFar += currentSymbol.character() + generateLevel.splitSymbol;
+            textSoFar += currentSymbol.unit() + generateLevel.splitSymbol;
             count++;
-            Character mostFollowed = currentSymbol.nextFollowedBy().character();
+            String mostFollowed = currentSymbol.nextFollowedBy().unit();
             MarkovSymbol mostFollowedSymbol = frequencies.getSymbol(mostFollowed);
             return addSymbol(textSoFar, mostFollowedSymbol, count, max);
         } else {
