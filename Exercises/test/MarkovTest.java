@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -74,10 +75,33 @@ public class MarkovTest {
         assertThat(generator.generate(50).length(), is(50));
     }
 
-//    @Test
-//    public void shouldGenerateWordsWithSpacesWithoutSpacesEveryLetter(){
-//        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Letter);
-//        assertThat(generator.generate());
-//    }
+    @Test
+    public void shouldGenerateFromSourceTextInWordChunks(){
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Word);
+        System.out.println(generator.generate());
+        System.out.println(longText);
+        assertTrue(generator.generate().contains("ipsum"));
+        assertFalse(generator.generate().equals(longText));
+    }
+
+    @Test
+    public void generatedWordsShouldNotBeTheSameAsSourceWords(){
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Word);
+        assertFalse(generator.generate().contains(longText));
+    }
+
+    @Test
+    public void generatedWordsShouldByDefaultHaveTheSameNumberOfWordsAsTheSourceText(){
+        MarkovGenerator generator = new MarkovGenerator(longText, GenerateLevel.Word);
+        assertThat(wordsIn(generator.generate()), is(wordsIn(longText)));
+    }
+
+    private Integer wordsIn(String longText) {
+        int wordCount = 0;
+        for (String word : longText.split(GenerateLevel.Word.splitSymbol)){
+            wordCount++;
+        }
+        return wordCount;
+    }
 
 }
