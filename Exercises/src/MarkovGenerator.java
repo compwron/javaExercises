@@ -31,7 +31,19 @@ public class MarkovGenerator {
     }
 
     public String generate(){
+//        to reduce the bad coupling here, make the enum determine what this number should be, given the separator and the text?
+        if (generateLevel == GenerateLevel.Word){
+            return generate(wordsIn(text));
+        }
         return generate(text.length());
+    }
+
+    private Integer wordsIn(String longText) {
+        int wordCount = 0;
+        for (String word : longText.split(GenerateLevel.Word.splitSymbol)){
+            wordCount++;
+        }
+        return wordCount;
     }
 
     private String addSymbol(String textSoFar, MarkovSymbol currentSymbol, Integer count, Integer max){
