@@ -2,6 +2,8 @@ import org.junit.Test;
 import src.Diamond;
 
 import static junit.framework.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class DiamondTest {
 
@@ -17,7 +19,6 @@ public class DiamondTest {
 
     @Test
     public void shouldMakeDiamondStringWithMultipleNonCenterIncrements(){
-        String expectedDiamond = "   *   \n *** \n*****\n *** \n   *   \n";
-        assertTrue(new Diamond(5).print().equals(expectedDiamond));
+        assertThat(new Diamond(5).print(), is("  *  \n *** \n*****\n *** \n  *  \n"));
     }
 }
