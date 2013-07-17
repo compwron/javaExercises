@@ -1,8 +1,5 @@
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
-import src.IntegerCollection;
-import src.IntegerType;
-import src.ListOf1ToN;
 
 import java.util.ArrayList;
 

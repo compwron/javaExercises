@@ -1,6 +1,4 @@
 import org.junit.Test;
-import src.GenerateLevel;
-import src.MarkovGenerator;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

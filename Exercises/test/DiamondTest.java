@@ -1,5 +1,4 @@
 import org.junit.Test;
-import src.Diamond;
 
 import static junit.framework.Assert.assertTrue;
 import static org.hamcrest.CoreMatchers.is;

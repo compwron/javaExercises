@@ -1,5 +1,3 @@
-package src;
-
 public class ApproximatePi {
     private  Integer counterGoal = 1;
 

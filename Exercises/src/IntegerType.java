@@ -1,5 +1,3 @@
-package src;
-
 public enum IntegerType {
     ODD(1), EVEN(0);
 

@@ -16,7 +16,7 @@ sourceSets {
         compileClasspath += configurations.provided
 
         java {
-            srcDirs = projects.collect { project -> project + '/src/src' }
+            srcDirs = projects.collect { project -> project + '/src' }
         }
     }
 
