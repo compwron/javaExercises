@@ -1,3 +1,9 @@
+Usage:
+=================
+To build and runtests: gradle build
+To run coberturage test coverage: gradle cobertura
+To view reports: open build/reports/cobertura/index.html
+
 Problem Statement:
 =================
 
